@@ -1,0 +1,12 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "finance-mcp",
+  "owner": { "name": "Mycelium AI", "url": "https://myceliumai.co" },
+  "plugins": [
+    {
+      "name": "finance-mcp",
+      "source": "./",
+      "description": "Local-first personal finance MCP. Aggregates bank, brokerage, credit, and loan accounts via Plaid. Writes balances, holdings, and transactions to a local markdown vault. Tokens stored in macOS Keychain."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "finance-mcp": {
+      "command": "python3",
+      "args": ["-m", "finance_mcp.server"],
+      "env": {
+        "PYTHONPATH": "${CLAUDE_PLUGIN_ROOT}"
+      }
+    }
+  }
+}

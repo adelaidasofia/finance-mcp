@@ -21,38 +21,14 @@ Most personal-finance SaaS (Mint, Copilot, YNAB, Monarch) puts your bank data on
 - **Never returns access tokens** in tool responses — items are referenced by alias (`chase`, `citi`, etc.).
 - **Vault data is plain markdown** with inline Dataview fields — your data, your format, queryable forever.
 
-### Install
+## Install
 
-Requires macOS (for Keychain). Python 3.11+.
+Open Claude Code, paste:
 
-```bash
-git clone https://github.com/adelaidasofia/finance-mcp ~/.claude/finance-mcp
-cd ~/.claude/finance-mcp
-pip3 install --break-system-packages -r requirements.txt
-cp .env.example .env
-chmod 600 .env
-```
+    /plugin marketplace add adelaidasofia/finance-mcp
+    /plugin install finance-mcp@finance-mcp
 
-Open `.env` and fill in your Plaid `PLAID_CLIENT_ID` and `PLAID_SECRET` (see [SETUP.md](SETUP.md) for the Plaid signup walkthrough).
-
-### Register with Claude Code
-
-Add to your vault's `.mcp.json` (project scope) or `~/.claude.json` (user scope, via `claude mcp add`):
-
-```json
-"finance": {
-  "type": "stdio",
-  "command": "python3",
-  "args": ["-m", "finance_mcp.server"],
-  "env": {
-    "PYTHONPATH": "/Users/<you>/.claude/finance-mcp",
-    "FINANCE_MCP_VAULT_PATH": "/Users/<you>/Documents/MyVault",
-    "FINANCE_MCP_FINANCE_FOLDER": "Finance"
-  }
-}
-```
-
-Restart Claude Code. Tools appear under `mcp__finance__*`.
+Requires macOS (for Keychain) and Python 3.11+. After install, set your Plaid credentials in `.env` at the plugin root (see [SETUP.md](SETUP.md) for the Plaid signup walkthrough).
 
 ### First-time use
 
@@ -137,6 +113,40 @@ Set via `PLAID_ENV` in `.env`. Switch by re-linking all institutions (tokens are
 ### License
 
 MIT. See [LICENSE](LICENSE).
+
+---
+
+<details>
+<summary>Legacy install (manual)</summary>
+
+For users who can't use the plugin marketplace yet, the manual flow:
+
+```bash
+git clone https://github.com/adelaidasofia/finance-mcp ~/.claude/finance-mcp
+cd ~/.claude/finance-mcp
+pip3 install --break-system-packages -r requirements.txt
+cp .env.example .env
+chmod 600 .env
+```
+
+Then register with Claude Code by adding to your vault's `.mcp.json` (project scope) or `~/.claude.json` (user scope, via `claude mcp add`):
+
+```json
+"finance": {
+  "type": "stdio",
+  "command": "python3",
+  "args": ["-m", "finance_mcp.server"],
+  "env": {
+    "PYTHONPATH": "/Users/<you>/.claude/finance-mcp",
+    "FINANCE_MCP_VAULT_PATH": "/Users/<you>/Documents/MyVault",
+    "FINANCE_MCP_FINANCE_FOLDER": "Finance"
+  }
+}
+```
+
+Restart Claude Code. Tools appear under `mcp__finance__*`.
+
+</details>
 
 ---
 
