@@ -14,41 +14,12 @@ Configuration: see .env.example. All env vars are documented there.
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
 from typing import Any
 
 from fastmcp import FastMCP
 
-from . import __version__
+from . import __version__  # noqa: F401 — also fires .env loader
 from .tools import diag, link, sync
-
-
-def _load_dotenv() -> None:
-    """Minimal .env loader (no python-dotenv dep). Skips lines that don't
-    parse cleanly. Does NOT override values already set in the environment.
-    """
-    here = Path(__file__).resolve().parent.parent
-    env_file = here / ".env"
-    if not env_file.exists():
-        return
-    try:
-        for raw in env_file.read_text().splitlines():
-            line = raw.strip()
-            if not line or line.startswith("#"):
-                continue
-            if "=" not in line:
-                continue
-            key, _, value = line.partition("=")
-            key = key.strip()
-            value = value.strip().strip('"').strip("'")
-            if key and key not in os.environ:
-                os.environ[key] = value
-    except OSError:
-        pass
-
-
-_load_dotenv()
 
 mcp = FastMCP(
     name="finance-mcp",
