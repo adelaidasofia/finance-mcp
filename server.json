@@ -16,6 +16,7 @@
       "transport": {
         "type": "stdio"
       },
+      "fileSha256": "72a1deab67948f2201ea305782bcf463712303abc1d05c7bc3881af177ad986d",
       "environmentVariables": [
         {
           "name": "PLAID_CLIENT_ID",
