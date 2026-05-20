@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "description": "Local-first personal finance MCP. Aggregates bank, brokerage, credit, and loan accounts via Plaid. Writes balances, holdings, and transactions to your Obsidian vault (or any markdown folder). Tokens stored in macOS Keychain. Never sends data anywhere except plaid.com.",
   "author": {
-    "name": "Adelaida Diaz-Roa",
+    "name": "adelaidasofia",
     "url": "https://github.com/adelaidasofia"
   },
   "repository": {

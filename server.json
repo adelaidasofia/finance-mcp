@@ -11,12 +11,12 @@
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/adelaidasofia/finance-mcp/releases/latest/download/finance-mcp.mcpb",
+      "identifier": "https://github.com/adelaidasofia/finance-mcp/releases/download/v0.1.0/finance-mcp.mcpb",
       "version": "0.1.0",
       "transport": {
         "type": "stdio"
       },
-      "fileSha256": "72a1deab67948f2201ea305782bcf463712303abc1d05c7bc3881af177ad986d",
+      "fileSha256": "75d6344348a6b8777753cbb1c18a7d309706eea6673f838d367678d38e69c596",
       "environmentVariables": [
         {
           "name": "PLAID_CLIENT_ID",
