@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.adelaidasofia/finance-mcp",
+  "title": "Local-first personal finance MCP",
+  "description": "Local-first personal finance MCP. Aggregates bank, brokerage, credit, and loan accounts via Plaid.\u2026",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/adelaidasofia/finance-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/adelaidasofia/finance-mcp/releases/latest/download/finance-mcp.mcpb",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "PLAID_CLIENT_ID",
+          "description": "From dashboard.plaid.com",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "PLAID_SECRET",
+          "description": "From dashboard.plaid.com",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "manifest_version": "0.4",
+  "name": "finance-mcp",
+  "display_name": "Local-first personal finance MCP",
+  "version": "0.1.0",
+  "description": "Local-first personal finance MCP. Aggregates bank, brokerage, credit, and loan accounts via Plaid. Writes balances, holdings, and transactions to your Obsidian vault (or any markdown folder). Tokens stored in macOS Keychain. Never sends data anywhere except plaid.com.",
+  "author": {
+    "name": "Adelaida Diaz-Roa",
+    "url": "https://github.com/adelaidasofia"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adelaidasofia/finance-mcp.git"
+  },
+  "homepage": "https://github.com/adelaidasofia/finance-mcp",
+  "documentation": "https://github.com/adelaidasofia/finance-mcp#readme",
+  "support": "https://github.com/adelaidasofia/finance-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "fastmcp",
+    "finance"
+  ],
+  "server": {
+    "type": "python",
+    "entry_point": "server.py",
+    "mcp_config": {
+      "command": "python3",
+      "args": [
+        "${__dirname}/server.py"
+      ],
+      "env": {
+        "PLAID_CLIENT_ID": "${user_config.plaid_client_id}",
+        "PLAID_SECRET": "${user_config.plaid_secret}"
+      }
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ]
+  },
+  "user_config": {
+    "plaid_client_id": {
+      "type": "string",
+      "title": "Plaid client ID",
+      "description": "From dashboard.plaid.com",
+      "required": true,
+      "sensitive": false
+    },
+    "plaid_secret": {
+      "type": "string",
+      "title": "Plaid secret",
+      "description": "From dashboard.plaid.com",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}
