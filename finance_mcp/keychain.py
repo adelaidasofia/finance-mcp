@@ -29,14 +29,17 @@ class StoreResult:
 
 
 def _run(args: list[str], input_str: Optional[str] = None) -> tuple[int, str, str]:
-    proc = subprocess.run(
-        args,
-        input=input_str,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    return proc.returncode, proc.stdout.strip(), proc.stderr.strip()
+    try:
+        proc = subprocess.run(
+            args,
+            input=input_str,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return proc.returncode, proc.stdout.strip(), proc.stderr.strip()
+    except FileNotFoundError:
+        return 127, "", "security command not found (not on macOS)"
 
 
 def put_token(institution_alias: str, access_token: str) -> StoreResult:
