@@ -15,7 +15,7 @@ classifiers = [
 dependencies = [
     "fastmcp>=3.4.0",
     "plaid-python>=39.0.0",
-    "requests>=2.31",
+    "requests>=2.34.2",
 ]
 
 [project.urls]
