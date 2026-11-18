@@ -13,7 +13,7 @@ classifiers = [
     "Topic :: Office/Business :: Financial",
 ]
 dependencies = [
-    "fastmcp>=4.1.7",
+    "fastmcp>=4.1.8",
     "plaid-python>=46.0.0",
     "requests>=2.34.2",
 ]
